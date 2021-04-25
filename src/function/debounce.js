@@ -1,6 +1,8 @@
 /**
  * debounce 防抖
  * 创建一个防抖动函数，该函数会从上一次被调用后，延迟 wait 毫秒后调用 callback
+ * @param {Function} callback
+ * @param {Number} wait
  * */
 const debounce = (callback, wait) => {
   // 定时器变量

@@ -1,6 +1,8 @@
 /**
  * throttle 节流
  * 创建一个节流函数，在 wait 毫秒内最多执行 callback 一次
+ * @param {Function} callback
+ * @param {Number} wait
  * */
 const throttle = (callback, wait) => {
   // 定义开始时间
