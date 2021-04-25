@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../src/function/throttle.js"></script>
+    <script src="../src/function/debounce.js"></script>
+</head>
+<body>
+<button id="throttle">测试函数节流</button>
+<button id="debounce">测试函数防抖</button>
+
+<script>
+/**
+ * 事件频繁触发可能造成的问题?
+ * -一些浏览器事件:window.onresize、window.mousemove等，触发的频率非常高，会造成界面卡顿
+ * -如果向后台发送请求，频繁触发，对服务器造成不必要的压力
+ *
+ * 如何限制事件处理函数频繁调用
+ * -函数节流
+ * -函数防抖
+ *
+ * 函数节流(throttle)
+ * 理解:
+ * -在函数需要频繁触发时: 函数执行一次后，只有大于设定的执行周期后才会执行第二次
+ * -适合多次事件按时间做平均分配触发
+ * 场景：
+ * -窗口调整（resize）
+ * -页面滚动（scroll）
+ * -DOM 元素的拖拽功能实现（mousemove）
+ * -抢购疯狂点击（click）
+ *
+ * 函数防抖(debounce)
+ * 理解:
+ * -在函数需要频繁触发时: 在规定时间内，只让最后一次生效，前面的不生效。
+ * -适合多次事件一次响应的情况
+ * 场景:
+ * -输入框实时搜索联想（keyup/input）
+ * */
+
+    /** 处理点击事件的回调函数 */
+    function handleClick(event) { // 处理事件的回调
+      console.log('处理点击事件', this, event)
+    }
+
+    document.getElementById('throttle').onclick = throttle(handleClick, 1000)
+    document.getElementById('debounce').onclick = debounce(handleClick, 1000)
+</script>
+</body>
+</html>
