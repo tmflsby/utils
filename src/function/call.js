@@ -1,6 +1,9 @@
 /**
  * call方法
  * 执行fn, 使this为obj, 并将后面的n个参数传给fn(功能等同于函数对象的call方法)
+ * @param {Function} fn
+ * @param {Object} obj
+ * @param {*} args
  * */
 const call = (fn, obj, ...args) => {
   // 如果obj是undefined/null, this指定为全局对象

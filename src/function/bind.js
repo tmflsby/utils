@@ -1,6 +1,9 @@
 /**
  * bind方法
- *  给fn绑定this为obj, 并指定参数为后面的n个参数 (功能等同于函数对象的bind方法)
+ * 给fn绑定this为obj, 并指定参数为后面的n个参数 (功能等同于函数对象的bind方法)
+ * @param {Function} fn
+ * @param {Object} obj
+ * @param {*} args
  * */
 const bind = (fn, obj, ...args) => {
   // 返回一个新函数

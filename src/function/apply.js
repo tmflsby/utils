@@ -1,6 +1,9 @@
 /**
  * apply 方法
  * 执行fn, 使this为obj, 并将args数组中的元素传给fn(功能等同于函数对象的apply方法)
+ * @param {Function} fn
+ * @param {Object} obj
+ * @param {Array} args
  * */
 const apply = (fn, obj, args) => {
   // 如果obj是undefined/null, this指定为全局对象
