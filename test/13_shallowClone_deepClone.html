@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../src/object/shallowClone.js"></script>
+    <script src="../src/object/deepClone.js"></script>
+</head>
+<body>
+<script>
+    const obj = { x: 'abc', y: { m: 1 } }
+    const arr = [1,2,3,4,5]
+    const obj1 = {
+      a: 1,
+      b: [ 'e', 'f', 'g'],
+      c: { h: 20 },
+      d: function (){}
+    }
+    obj1.b.push(obj1.c)
+    obj1.c.j = obj1.b
+
+    const testObj1 = shallowClone1(obj)
+    const testObj2 = shallowClone2(obj)
+    const testArr1 = shallowClone1(arr)
+    const testArr2 = shallowClone2(arr)
+
+    // 修改新数据中某个引用类型的值
+    testObj1.y.m = 2
+    testObj2.x = 'xyz'
+
+    // const testObj3 = deepClone1(obj1)
+    // const testObj4 = deepClone2(obj1)
+    const testObj5 = deepClone3(obj1)
+    const testObj6 = deepClone4(obj1)
+    // testObj3.a = 20000
+    // testObj4.a = 20000
+
+    console.log('================================浅拷贝===================================')
+    console.log(obj)
+    console.log(testObj1)
+    console.log(testObj2)
+    console.log(obj === testObj1, obj === testObj2, testObj1 === testObj2)
+    console.log(obj.y === testObj1.y, obj.x === testObj2.x, testObj1.y.m === testObj2.y.m)
+    console.log(arr)
+    console.log(testArr1)
+    console.log(testArr2)
+    console.log(arr === testArr1, arr === testArr2, testArr1 === testArr2)
+    console.log(arr[1] === testArr1[1], arr[2] === testArr2[2], testArr1[3] === testArr2[3])
+
+    console.log('================================深拷贝===================================')
+    console.log(obj1)
+    // console.log(testObj3)
+    // console.log(testObj4)
+    console.log(testObj5)
+    console.log(testObj6)
+</script>
+</body>
+</html>
