@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../src/object/newInstance.js"></script>
+    <script src="../src/object/myInstanceof.js"></script>
+</head>
+<body>
+<script>
+    function Person(name, age) {
+      this.name = name
+      this.age = age
+      // return {a:100}
+    }
+
+    // 调用newInstance函数创建对象
+    let obj = newInstance(Person, '帅洋', 18)
+    console.log(obj)
+
+    let p = new Person()
+    console.log(myInstanceof(p, Person))
+    console.log(myInstanceof(p, Object))
+    console.log(myInstanceof(Person, Object))
+    console.log(myInstanceof(Person, Function))
+    console.log(myInstanceof(p, Function))
+</script>
+</body>
+</html>
