@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../src/event-bus/index.js"></script>
+</head>
+<body>
+<script>
+    // eventBus
+    eventBus.on('login', data => {
+      console.log(data + '用户已经登陆')
+    })
+
+    eventBus.on('login', data => {
+      console.log(data + '登陆数据已经写入')
+    })
+
+    eventBus.on('logout', data => {
+      console.log(data + '退出登录')
+    })
+
+    console.log(eventBus)
+
+    eventBus.emit('login', '帅洋')
+
+    // 触发事件
+    setTimeout(() => {
+      // 解绑事件
+      eventBus.off('login')
+      console.log(eventBus)
+    }, 2000)
+
+</script>
+</body>
+</html>
